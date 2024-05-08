@@ -1,0 +1,8 @@
+Wind Turbine Scada Dataset
+https://www.kaggle.com/datasets/berkerisen/wind-turbine-scada-dataset/data
+
+Docker compose Apache Airflow
+https://airflow.apache.org/docs/apache-airflow/2.9.1/docker-compose.yaml
+
+Instructions for PYPI
+https://airflow.apache.org/docs/apache-airflow/stable/installation/installing-from-pypi.html
