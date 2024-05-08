@@ -59,8 +59,14 @@ x-airflow-common:
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
-    AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
+    AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
+
+    # My configurations
+    AIRFLOW__WEBSERVER__EXPOSE_CONFIG: 'true'
+    AIRFLOW__SCHEDULER__MIN_FILE_PROCESS_INTERVAL: 5
+    AIRFLOW__SCHEDULER__DAG_DIR_LIST_INTERVAL: 20
+
     # yamllint disable rule:line-length
     # Use simple http server on scheduler for health checks
     # See https://airflow.apache.org/docs/apache-airflow/stable/administration-and-deployment/logging-monitoring/check-health.html#scheduler-health-check-server
@@ -88,6 +94,8 @@ x-airflow-common:
 services:
   postgres:
     image: postgres:13
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: airflow
       POSTGRES_PASSWORD: airflow
